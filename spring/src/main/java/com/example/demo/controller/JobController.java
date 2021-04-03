@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +24,7 @@ import com.example.demo.repository.JobRepository;
 
 @RestController
 @Transactional
+@CrossOrigin("http://localhost/4200")
 public class JobController {
 	
 	@Autowired
@@ -31,10 +33,12 @@ public class JobController {
 	@PostMapping("/pm/addJob")
 	public String addJob(@RequestBody final JobModel job) {
 		List<JobModel> jm=jobrepo.getJobs();
-		int k=jm.size();
+		int k=0;
+		
 		int id=200;
-		if(k!=0) {
-			id+=k;
+		if(jm.size()!=0) {
+			k=Integer.parseInt(jm.get(jm.size()-1).getJobId());
+			id=k+1;
 			job.setJobId(String.valueOf(id));
 		}
 		

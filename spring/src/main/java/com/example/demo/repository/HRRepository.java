@@ -8,6 +8,6 @@ public interface HRRepository extends JpaRepository<HRModel,Integer> {
 	
 	void deleteByJobId(String JobId);
 	
-	
+	HRModel findByJobId(String jobId);
 
 }

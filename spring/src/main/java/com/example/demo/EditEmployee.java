@@ -6,6 +6,7 @@ public class EditEmployee {
 	private String email;
 	private String password;
 	private String role;
+	private String userName;
 	
 	
 	
@@ -26,6 +27,12 @@ public class EditEmployee {
 	}
 	public void setRole(String role) {
 		this.role = role;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	
 	

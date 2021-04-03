@@ -10,19 +10,20 @@ public class RegisterError {
 	private Boolean department;
 	private String role;
 	private String userName;
+	private String message;
 	
 	public RegisterError(String email, String password, String cpassword, String empId,
-			String mobile_number, String role, String userName) {
+			String mobile_number, String role, String userName,String message) {
 		super();
 		this.empId=empId;
 		this.email = email;
 		this.password = password;
 		this.cpassword = cpassword;
 		this.empId = empId;
-		this.mobileNumber = mobileNumber;
-		this.department = department;
+		this.mobileNumber = mobile_number;
 		this.role = role;
 		this.userName = userName;
+		this.message=message;
 	}
 	
 
@@ -73,6 +74,16 @@ public class RegisterError {
 	}
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+
+	public String getMessage() {
+		return message;
+	}
+
+
+	public void setMessage(String message) {
+		this.message = message;
 	}
 		
 }

@@ -1,12 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "f00e8e2c-f337-4120-b39e-19beceb820a1"
+    "analytics": "a16d74ae-178e-4c27-a9b4-a59d717d46f6"
   },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Angular": {
+    "employee-frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Angular",
+            "outputPath": "dist/employee-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -31,6 +31,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -68,18 +69,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Angular:build"
+            "browserTarget": "employee-frontend:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Angular:build:production"
+              "browserTarget": "employee-frontend:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Angular:build"
+            "browserTarget": "employee-frontend:build"
           }
         },
         "test": {
@@ -116,16 +117,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Angular:serve"
+            "devServerTarget": "employee-frontend:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Angular:serve:production"
+              "devServerTarget": "employee-frontend:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "Angular"
+  "defaultProject": "employee-frontend"
 }

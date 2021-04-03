@@ -1,0 +1,136 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="adminhome.component.css">
+
+<div >  
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+    
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Please Confirm</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+    
+          <!-- Modal body -->
+          <div class="modal-body">
+            Are you sure want to logout?
+          </div>
+    
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="home()">Logout</button>
+          </div>
+    
+        </div>
+      </div>
+    </div>
+  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+      <div class="container">
+        <button class="btn-new" (click)="adminPage()" >
+              JobHub
+        </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto"> 
+            <li class="nav-item active">
+              <button class="btn btn-primary" (click)="adminPage()" >Home</button>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link"href="#" data-toggle="modal" data-target="#myModal" routerLinkActive="active">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+  </nav>
+  </div>
+
+<br>
+<div class="alert alert-danger" role="alert" *ngIf="message.length > 0">
+    {{message}}
+  </div>
+<div>
+    <nav style="text-align: center" class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <form class="d-flex" style="margin:auto;">
+              <input class="form-control me-5" type="search" placeholder="Type to search here" aria-label="Search">
+              <button style="margin-right: 10px" class="btn btn-outline-success" type="submit">Search</button>
+              <button class="btn btn-outline-success" type="submit">Add</button>
+            </form>
+        </div>
+    </nav>
+    <br>
+    <div class="row">
+        <div class="column">
+            <table style="width:100%;margin-left: 10px;">
+                <tr>
+                    <td style="width:20%;border-right: 2px solid black;padding-left:20px">Emp ID</td>
+                    <td style="width:20%;border-right: 2px solid black;padding-left:20px">Name</td>
+                    <td style="width:40%;border-right: 2px solid black;padding-left:20px">Role</td>
+                    <td style="width:20%;padding-left:20px">Options</td>
+                </tr>
+            </table>
+            <hr>
+            <br>
+            <div>
+                <div *ngFor="let item of data">
+                    <table class="items" style="width:100%;margin-left: 10px;">
+                        <tr>
+                            <td style="width:20%;padding-left:10px">{{item.empId}}</td>
+                            <td style="width:20%;padding-left:10px">{{item.userName}}</td>
+                            <td style="width:20%;padding-left:10px">{{item.role}}</td>
+                            <td style="width:20%;padding-left:20px">
+                            <span>
+                                <button (click)="editButton(item.empId)" class="btn">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                                <button (click)="deleteButton(item.empId)"class="btn">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div style="background-color:rgb(168, 223, 193);padding:5px;margin:auto;text-align:center;width:60%;border:2px solid black;border-radius: 10px;">
+                <h3>Add/Update Details</h3>
+                <br>
+                <form style="line-height-step: 20;text-align: center;">
+                    <input name="username" [(ngModel)]="username" style="border-radius: 5px;" type="text" placeholder="Enter Username" id="username"/>
+                    <br>
+                    <br>
+                    <input name="email" [(ngModel)]="email"  type="text" placeholder="Enter Email"/>
+                    <br>
+                    <br>
+                    <input name="password" [(ngModel)]="password" type="password" placeholder="Enter Password"/>
+                    <br>
+                    <br>
+                    
+                    <input name="role" [(ngModel)]="role" type="text" placeholder="Enter Role"/>
+                    <br>
+                    <br>
+                    <button class="btn btn-primary" (click)="updateclick()">Update</button><br><br>
+                    <button class="btn  btn-success" (click)="addClick()">Add</button><br><br>
+                    <!--<button class="btn btn-outline-danger" (click)="cancelButton()">Cancel</button>>-->
+                    <br><br>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

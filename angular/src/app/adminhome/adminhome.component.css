@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Create two equal columns that floats next to each other */
+  .column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .items{
+    background-color:skyblue;
+    margin: 15px;
+    margin-left: 5px;
+    height:40px;
+    border-radius: 5px;
+    padding: 20px;
+  }
+  .btn-new {
+    cursor: pointer;
+    border: 1px solid #db3495;
+    background-color: transparent;
+    height: 50px;
+    width: 200px;
+    color: #db3495;
+    font-size: 1.5em;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+}
+input[type=text], select {
+  width: 90%;
+  padding: 10px 20px;
+  margin: 3px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=password], select {
+  width: 90%;
+  padding: 10px 20px;
+  margin: 3px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
