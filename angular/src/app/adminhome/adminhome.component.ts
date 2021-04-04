@@ -77,14 +77,18 @@ export class AdminhomeComponent implements OnInit {
       alert("Try again");
     }
   }
+
+
   deleteButton(empId:string){
     console.log(empId);
     this.http.delete("http://localhost:4041/admin/delete/"+empId)
     .subscribe((res)=>{
       this.message="Deleted Successfully";
       alert("Deleted Successfully")
+      window.location.reload();
     });
   }
+  
   editButton(empId:string){
     let en,ep,em,er,eno;
     // if(this.username!="")

@@ -9,6 +9,8 @@ import { HomecomponentComponent } from './homecomponent/homecomponent.component'
 import { HrappliedjobsComponent } from './hrappliedjobs/hrappliedjobs.component';
 import { HrhomeComponent } from './hrhome/hrhome.component';
 import { LoginComponent } from './login/login.component';
+import { ProjectmanagerappliedjobsComponent } from './projectmanagerappliedjobs/projectmanagerappliedjobs.component';
+import { ProjectmanagerhomeComponent } from './projectmanagerhome/projectmanagerhome.component';
 import { RegisterComponent } from './register/register.component';  
 
 
@@ -21,6 +23,9 @@ const routes: Routes = [
   {path:'hr/allAppliedJobs',component:HrappliedjobsComponent},
   {path:'admin',component:AdminhomeComponent},
   {path:'demo',component:DemoComponent},
+  {path:'projectmanager',component:ProjectmanagerhomeComponent},
+  {path:'projectmanager/appliedJobs',component:ProjectmanagerappliedjobsComponent},
+  
   
 ];
 

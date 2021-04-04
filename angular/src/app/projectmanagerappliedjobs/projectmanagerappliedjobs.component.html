@@ -35,29 +35,29 @@
       </div>
     </div>
   
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
-      <div class="container">
-        <button class="btn-new" (click)="hr()">
-              JobHub
-        </button>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto"> 
-            <li class="nav-item active">
-              <button class="btn btn-primary" (click)="hr()">Home</button>
-            </li><span style="margin:3px;"></span>
-            <li class="nav-item active">
-              <button class="btn btn-primary" (click)="appliedJobs()" >Applied Jobs</button>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"href="#" data-toggle="modal" data-target="#myModal" (click)="home()" routerLinkActive="active">Logout</a>
-            </li>
-          </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+          <button class="btn-new" (click)="projectmanager()">
+                JobHub
+          </button>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto"> 
+              <li class="nav-item active">
+                <button class="btn btn-primary" (click)="projectmanager()">Home</button>
+              </li><span style="margin:3px;"></span>
+              <li class="nav-item active">
+                <button class="btn btn-primary" (click)="appliedJobs()" >Applied Jobs</button>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"href="#" data-toggle="modal" data-target="#myModal" (click)="home()" routerLinkActive="active">Logout</a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-  </nav>
+    </nav>
   </div>
 
 <br>
@@ -110,7 +110,7 @@
                 <h3>Job Details</h3>
                 <br>
                 <div *ngFor="let item of jobData">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png"  >
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI7M4Z0v1HP2Z9tZmfQaZFCuspezuoxter_A&usqp=CAU" width="100px" height="100px" >
                         <br><br>
                         {{item.jobTitle}}<br>
                         Applicant Name:{{empName}}<br>
@@ -119,7 +119,7 @@
                         
                         {{item.jobType}}<br>
                         {{item.salary}}<br><br>
-                        <button  class="btn btn-primary" >Accept/Reject</button><br>
+                        
                 </div>
             </div>
         </div>

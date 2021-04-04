@@ -37,7 +37,7 @@
   
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
       <div class="container">
-        <button class="btn-new" (click)="hr()">
+        <button class="btn-new" (click)="projectmanager()">
               JobHub
         </button>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,7 +46,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto"> 
             <li class="nav-item active">
-              <button class="btn btn-primary" (click)="hr()">Home</button>
+              <button class="btn btn-primary" (click)="projectmanager()">Home</button>
             </li><span style="margin:3px;"></span>
             <li class="nav-item active">
               <button class="btn btn-primary" (click)="appliedJobs()" >Applied Jobs</button>
@@ -83,31 +83,24 @@
                 <h5>{{item.jobTitle}}</h5>
                 <h5>{{item.jobDesc}}</h5>
                 <h5>{{item.jobLocation}}</h5>
-                <button  class="btn" (click)="editJob(item.jobId)">
-                    <i class="fa fa-edit"></i>
-                </button>
-                <button class="btn" (click)="deleteJob(item.jobId)"s>
-                    <i class="fa fa-trash"></i>
-                </button><br>
-                <button class="btn btn-primary" (click)="addJob(item.jobId)"s>
-                  Add Job
-              </button>
-              
+                <h5>{{item.salary}}</h5>
+                <h5>{{item.jobType}}</h5>
+                
             </div>
         </div>
     </div>
 
     <div class="column">
         <div style="padding:10px;margin:auto;text-align:center;width:60%;border:2px solid black;border-radius: 10px;">
-            <h3>Update Job Details</h3>
-            <img src="https://static1.shine.com/l/m/images/blog/job_search_portals.png" width="120px" height="120px">
+            <h3>Add New Job</h3>
+            <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png" width="120px" height="120px">
             <br>
             <br>
             <form style="line-height-step: 20;text-align: center;">
-                <input type="text" [(ngModel)]="jobTitle" name="jobTitle" placeholder="Job Role"/>
+                <input type="text" [(ngModel)]="jobTitle" name="jobTitle" placeholder="Enter Name"/>
                 <br>
                 <br>
-                <input type="text" [(ngModel)]="jobLocation" name="jobLocation"  placeholder="Job Location"/>
+                <input type="text" [(ngModel)]="jobLocation" name="jobLocation"  placeholder="Job jobLocation"/>
                 <br>
                 <br>
                 <input type="text" [(ngModel)]="jobType" name="jobType" placeholder="Job Type"/>
@@ -119,7 +112,7 @@
                 <input type="text"  [(ngModel)]="salary" name="salary"  placeholder="Salary"/>
                 <br>
                 <br>
-                <button  class="btn btn-primary" (click)="updateJob()">Submit</button><br><br>
+                <button  class="btn btn-primary" (click)="addJob()">Submit</button><br><br>
                 
                 <br><br>
             </form>

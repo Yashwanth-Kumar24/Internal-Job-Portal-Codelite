@@ -37,6 +37,10 @@ export class HrhomeComponent implements OnInit {
     this.route.navigate(['hr/allAppliedJobs']);
   }
 
+  home(){
+    this.route.navigate(['']);
+  }
+  
   addJob(id:any){
     console.log(id);
     this.http.post("http://localhost:4041/hr/addJob/",{id:id},{observe:'response'})

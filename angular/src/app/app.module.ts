@@ -10,7 +10,7 @@ import { HomecomponentComponent } from './homecomponent/homecomponent.component'
 import { AdminhomeComponent } from './adminhome/adminhome.component';
 import { HrhomeComponent } from './hrhome/hrhome.component';
 import { HrappliedjobsComponent } from './hrappliedjobs/hrappliedjobs.component';
-import { HrresultComponent } from './hrresult/hrresult.component';
+
 import { HrnavbarComponent } from './hrnavbar/hrnavbar.component';
 import { AdminnavbarComponent } from './adminnavbar/adminnavbar.component';
 import { LoginComponent } from './login/login.component';
@@ -18,6 +18,8 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { DemoComponent } from './demo/demo.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProjectmanagerhomeComponent } from './projectmanagerhome/projectmanagerhome.component';
+import { ProjectmanagerappliedjobsComponent } from './projectmanagerappliedjobs/projectmanagerappliedjobs.component';
 
 @NgModule({
   declarations: [
@@ -29,17 +31,19 @@ import { HttpClientModule } from '@angular/common/http';
     AdminhomeComponent,
     HrhomeComponent,
     HrappliedjobsComponent,
-    HrresultComponent,
     HrnavbarComponent,
     AdminnavbarComponent,
     LoginComponent,
     RegisterComponent,
-    DemoComponent
+    DemoComponent,
+    ProjectmanagerhomeComponent,
+    ProjectmanagerappliedjobsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    FormsModule,
     FormsModule,
     HttpClientModule
   ],

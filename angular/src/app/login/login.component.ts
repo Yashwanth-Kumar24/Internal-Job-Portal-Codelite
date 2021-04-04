@@ -20,11 +20,26 @@ export class LoginComponent implements OnInit {
   login(){
 
     if(this.empId=="admin" && this.password=="admin")
-    this.http.get("http://localhost:4041/admin")
-    .subscribe((res)=>{
+    {
+      this.addAdmin();
       alert("Welcome Admin");
-      this.router.navigate(['admin',{data:this.empId}]);
-    });
+
+      this.router.navigate(['admin']);
+    }
+    else if(this.empId=="projectmanager" && this.password=="pm"){
+      this.projectManager();
+      alert("Welcome Project Manager");
+
+      this.router.navigate(['projectmanager']);
+    
+    }
+    else if(this.empId=="HR" && this.password=="hr"){
+      this.hr();
+      alert("Welcome HR");
+
+      this.router.navigate(['hr']);
+    
+    }
     else{
       this.http.post("http://localhost:4041/Login",{empId:this.empId,password:this.password}
       ,{observe:'response'})
@@ -39,6 +54,33 @@ export class LoginComponent implements OnInit {
     }
       
   }
+
+  addAdmin(){
+        this.http.post("http://localhost:4041/admin/add/",
+        {email:"admin@job.in",userName:"Admin",password:"admin",role:"Admin"},{observe:'response'})
+        .subscribe((res)=>{
+          console.log(res.body);
+        });
+        
+      }
+      projectManager(){
+        this.http.post("http://localhost:4041/admin/add/",
+        {email:"pm@job.in",userName:"Project Manager",password:"pm",role:"Project Manager"},{observe:'response'})
+        .subscribe((res)=>{
+          console.log(res.body);
+        });
+        
+      }
+
+      hr(){
+        this.http.post("http://localhost:4041/admin/add/",
+        {email:"hr@job.in",userName:"HR",password:"hr",role:"HR"},{observe:'response'})
+        .subscribe((res)=>{
+          console.log(res.body);
+        });
+        
+      }
+
   register(){
     this.router.navigate(['register']);
   }
