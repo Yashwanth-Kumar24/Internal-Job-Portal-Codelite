@@ -35,7 +35,7 @@ import com.example.demo.repository.EmployeeRepository;
 
 @RestController
 @Transactional
-@CrossOrigin("http://localhost/4200")
+@CrossOrigin("http://localhost/8081")
 public class EmployeeController {
 	
 	@Autowired

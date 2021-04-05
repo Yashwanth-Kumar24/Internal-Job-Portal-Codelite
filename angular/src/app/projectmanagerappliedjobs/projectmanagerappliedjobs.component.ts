@@ -15,7 +15,7 @@ export class ProjectmanagerappliedjobsComponent implements OnInit {
   constructor(private route:Router,private http:HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get("http://localhost:4041/hr/allAppliedJobs",{observe:'response'})
+    this.http.get("https://8080-cbdfdacebfddceccaadbdcabcbfcdccdeaa.examlyiopb.examly.io/hr/allAppliedJobs",{observe:'response'})
     .subscribe((res)=>{
        this.data = res.body;
        
@@ -34,14 +34,14 @@ export class ProjectmanagerappliedjobsComponent implements OnInit {
   }
   details(jobId:string,empId:string){
     console.log(jobId);
-    this.http.get("http://localhost:4041/hr/getJob/"+jobId,{observe:'response'})
+    this.http.get("https://8080-cbdfdacebfddceccaadbdcabcbfcdccdeaa.examlyiopb.examly.io/hr/getJob/"+jobId,{observe:'response'})
     .subscribe((res)=>{
       //console.log(res.body);
        this.jobData=res.body;
        
     });
     //console.log(empId);
-    this.http.get("http://localhost:4041/getEmployee/"+empId,{observe:'response'})
+    this.http.get("https://8080-cbdfdacebfddceccaadbdcabcbfcdccdeaa.examlyiopb.examly.io/getEmployee/"+empId,{observe:'response'})
     .subscribe((res)=>{
       //onsole.log(res.body);
       this.empData=res.body;

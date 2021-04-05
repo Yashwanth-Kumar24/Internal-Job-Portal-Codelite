@@ -2,19 +2,13 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Float four columns side by side */
+/* Create two equal columns that floats next to each other */
 .column {
   float: left;
-  width: 25%;
-  padding: 0 10px;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
 }
-
-/* Remove extra left and right margins, due to padding in columns */
-.row {margin: 0 -5px;}
 
 /* Clear floats after the columns */
 .row:after {
@@ -23,47 +17,39 @@ body {
   clear: both;
 }
 
-/* Style the counter cards */
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-  padding: 16px;
-  text-align: center;
-  background-color: #f1f1f1;
+.items{
+  background-color:skyblue;
+  margin: 15px;
+  margin-left: 5px;
+  height:40px;
+  border-radius: 5px;
+  padding: 20px;
 }
-
-/* Responsive columns - one column layout (vertical) on small screens */
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
-}
-  .btn-new {
-    cursor: pointer;
-    border: 1px solid #db3495;
-    background-color: transparent;
-    height: 50px;
-    width: 200px;
-    color: #db3495;
-    font-size: 1.5em;
-    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+.btn-new {
+  cursor: pointer;
+  border: 1px solid #db3495;
+  background-color: transparent;
+  height: 50px;
+  width: 200px;
+  color: #db3495;
+  font-size: 1.5em;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
 }
 input[type=text], select {
-  width: 90%;
-  padding: 10px 20px;
-  margin: 3px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+width: 90%;
+padding: 10px 20px;
+margin: 3px 0;
+display: inline-block;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
 }
 input[type=password], select {
-  width: 90%;
-  padding: 10px 20px;
-  margin: 3px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+width: 90%;
+padding: 10px 20px;
+margin: 3px 0;
+display: inline-block;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
 }

@@ -23,7 +23,7 @@ export class AdminhomeComponent implements OnInit {
   constructor(private route:Router,private http:HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get("http://localhost:4041/admin",{observe:'response'})
+    this.http.get("https://8080-cbdfdacebfddceccaadbdcabcbfcdccdeaa.examlyiopb.examly.io/admin",{observe:'response'})
     .subscribe((res)=>{
        this.data = res.body;
        this.username="";
@@ -47,7 +47,7 @@ export class AdminhomeComponent implements OnInit {
     if(this.empId=="")
       alert("Please select a user to update employee");
     else{
-      this.http.put("http://localhost:4041/admin/update/"+this.empId,
+      this.http.put("https://8080-cbdfdacebfddceccaadbdcabcbfcdccdeaa.examlyiopb.examly.io/admin/update/"+this.empId,
       {email:this.email,userName:this.username,password:this.password,role:this.role},{observe:'response'})
       .subscribe((res)=>{
         alert("Update Details"+res.body);
@@ -65,7 +65,7 @@ export class AdminhomeComponent implements OnInit {
   addClick(){
     
     if(this.username!="" && this.email!="" && this.password!="" && this.role!=""){
-      this.http.post("http://localhost:4041/admin/add/",
+      this.http.post("https://8080-cbdfdacebfddceccaadbdcabcbfcdccdeaa.examlyiopb.examly.io/admin/add/",
       {email:this.email,userName:this.username,password:this.password,role:this.role},{observe:'response'})
       .subscribe((res)=>{
         this.d=res.body;
@@ -81,7 +81,7 @@ export class AdminhomeComponent implements OnInit {
 
   deleteButton(empId:string){
     console.log(empId);
-    this.http.delete("http://localhost:4041/admin/delete/"+empId)
+    this.http.delete("https://8080-cbdfdacebfddceccaadbdcabcbfcdccdeaa.examlyiopb.examly.io/admin/delete/"+empId)
     .subscribe((res)=>{
       this.message="Deleted Successfully";
       alert("Deleted Successfully")

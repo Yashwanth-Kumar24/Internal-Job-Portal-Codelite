@@ -26,7 +26,7 @@ import com.example.demo.repository.JobRepository;
 
 @RestController
 @Transactional
-@CrossOrigin("http://localhost/4200")
+@CrossOrigin("http://localhost/8081")
 public class JobController {
 	
 	@Autowired

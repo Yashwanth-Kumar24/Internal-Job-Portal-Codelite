@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
   }
   Signup(){
     
-    var obs = this.http.post("http://localhost:4041/Register",{email:this.email,userName:this.userName,mobileNumber:this.mobileNumber,password:this.password,cpassword:this.cpassword},{observe:'response'})
+    var obs = this.http.post("https://8080-cbdfdacebfddceccaadbdcabcbfcdccdeaa.examlyiopb.examly.io/Register",{email:this.email,userName:this.userName,mobileNumber:this.mobileNumber,password:this.password,cpassword:this.cpassword},{observe:'response'})
     obs.subscribe((res)=>{
       this.user=res.body;
       console.log(this.user);

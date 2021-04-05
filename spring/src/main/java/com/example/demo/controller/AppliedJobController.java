@@ -28,7 +28,7 @@ import java.time.LocalDateTime;
 
 @Transactional
 @RestController
-@CrossOrigin("http://localhost/4200")
+@CrossOrigin("http://localhost/8081")
 public class AppliedJobController {
 	
 	@Autowired
