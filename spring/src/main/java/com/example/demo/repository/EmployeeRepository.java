@@ -13,10 +13,15 @@ public interface EmployeeRepository extends JpaRepository<EmployeeModel,Integer>
 	EmployeeModel findByEmail(String email);
 	
 	EmployeeModel findByEmpId(String empId);
-		
+	
+	
 	@Query("from EmployeeModel")
 	List<EmployeeModel> getEmployee();
 	
+	List<EmployeeModel> findByUserName(String userName);
+	
+	@Query("from EmployeeModel where empId=?1")
+	List<EmployeeModel> getEmpById(String empId);
 	
 	void deleteByEmpId(String empId);
 	

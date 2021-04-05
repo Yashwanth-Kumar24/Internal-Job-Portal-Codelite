@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.EditEmployee;
+import com.example.demo.Message;
 import com.example.demo.model.EmployeeModel;
 import com.example.demo.model.EmployeeModelDemo;
 import com.example.demo.model.JobModel;
@@ -31,7 +33,7 @@ public class JobController {
 	JobRepository jobrepo;
 	
 	@PostMapping("/pm/addJob")
-	public String addJob(@RequestBody final JobModel job) {
+	public ResponseEntity<?> addJob(@RequestBody final JobModel job) {
 		List<JobModel> jm=jobrepo.getJobs();
 		int k=0;
 		
@@ -45,10 +47,13 @@ public class JobController {
 		else
 			job.setJobId("200");
 		jobrepo.save(job);
-		return "Job added with id "+job.getJobId();
+		return  ResponseEntity.ok(new Message("Job added with id "+job.getJobId()));
 	}
 	
-	
+	@GetMapping("/hr/getJob/{jobId}")
+	public List<JobModel> getJobById(@PathVariable("jobId") String id) {
+		return jobrepo.findByJobId(id);
+	}
 	
 	@GetMapping("/hr/homeJobs")
 	public List<JobModel> getHomeJobs(){

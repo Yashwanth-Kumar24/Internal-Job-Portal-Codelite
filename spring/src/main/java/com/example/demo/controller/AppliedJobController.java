@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.AppliedJob;
 import com.example.demo.DeleteAppliedJob;
+import com.example.demo.Message;
 import com.example.demo.model.AppliedJobModel;
 import com.example.demo.repository.AppliedJobRepository;
 
@@ -33,9 +34,10 @@ public class AppliedJobController {
 	@Autowired
 	AppliedJobRepository repo;
 	
-	@PostMapping("home/{employeeId}")   //post mapping jobid to be sent from req body
+	@PostMapping("home/{employeeId}")   
 	public ResponseEntity<?> jobMapping(@RequestBody final AppliedJob job,@PathVariable("employeeId") String empId) {
 			List<AppliedJobModel> ls=repo.findByEmployeeId(empId);
+			List<AppliedJobModel> js=repo.findByJobId(job.getJobId());
 			AppliedJobModel ajm=new AppliedJobModel();
 			
 			ajm.setJobId(job.getJobId());
@@ -46,12 +48,13 @@ public class AppliedJobController {
 			  ajm.setAppliedDate(d);
 			  System.out.println(ls.size());
 			if(ls.size()>=2)
-				return ResponseEntity.ok("Cannot apply, max jobs are 2");
-			else {
+				return ResponseEntity.ok(new Message("Cannot apply, max jobs are 2"));
+			if(js.size()>=1)
+				return ResponseEntity.ok(new Message("Job already applied"));
 				
-				repo.save(ajm);
-			}
-			return ResponseEntity.ok("Job Applied");
+			repo.save(ajm);
+			
+			return ResponseEntity.ok(new Message("Job Applied"));
 	}
 	
 	@GetMapping("appliedJobs/{employeeId}")
@@ -60,16 +63,9 @@ public class AppliedJobController {
 		return repo.findByEmployeeId(id);
 	}
 	
-	@DeleteMapping("/appliedJobs/delete")
-	public ResponseEntity<?> deleteMapping(@RequestBody final DeleteAppliedJob del) {
-		AppliedJobModel ajm=repo.deleteJobsById(del.getJobId(), del.getEmployeeId());
-		List<AppliedJobModel> ajm2=repo.deleteJobsById2(del.getJobId(), del.getEmployeeId());
-		
-		
-		if(ajm2.size()>0) {
-			repo.deleteById(ajm.getId());
-			return ResponseEntity.ok("Job Deleted");
-		}
-		return ResponseEntity.ok("Job is Not Deleted");
+	@DeleteMapping("/appliedJobs/delete/{employeeId}")
+	public ResponseEntity<?> deleteMapping(@PathVariable("employeeId") String id) {
+		repo.deleteByEmployeeId(id);
+		return ResponseEntity.ok(new Message("Jobs Deleted"));
 	}
 }
