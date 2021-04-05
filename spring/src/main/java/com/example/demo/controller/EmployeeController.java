@@ -53,7 +53,7 @@ public class EmployeeController {
 		int k=0;
 		if(emp.size()!=0) {
 			k=Integer.parseInt(emp.get(emp.size()-1).getEmpId());
-			System.out.println("Emp Id"+k);
+			
 			id=k+1;
 			em.setEmpId(String.valueOf(id));
 		}
@@ -62,12 +62,6 @@ public class EmployeeController {
 			em.setEmpId("100");
 		
 		
-		System.out.println(user.getEmail());
-        System.out.println(user.getUserName());
-        System.out.println(user.getMobileNumber());
-        System.out.println(user.getRole());
-        System.out.println(user.getDepartment());
-        System.out.println("===================");
         
         
 		String email = user.getEmail();
@@ -97,14 +91,12 @@ public class EmployeeController {
             			"","","Invalid Email Error"));
             }
             else {
-                
                 email = "";
-                
             }
         }
         
         String mobile_number = user.getMobileNumber();
-        System.out.println("========mobile error==========="+mobile_number);
+        
         String regex2 = "(^$|[7-9]{1}[0-9]{9})";
         Pattern pattern2 = Pattern.compile(regex2);
         Matcher matcher2 = pattern2.matcher(mobile_number);
@@ -132,7 +124,7 @@ public class EmployeeController {
         
         
         if(c==0) {
-        	System.out.println("===================");
+        	
         	em.setEmail(user.getEmail());
         	em.setPassword(user.getPassword());
         	em.setMobileNumber(user.getMobileNumber());
@@ -161,7 +153,6 @@ public class EmployeeController {
 		EmployeeModel nemp=new EmployeeModel();
 		if(users.size()!=0) {
 			k=Integer.parseInt(users.get(users.size()-1).getEmpId());
-			System.out.println("Emp Id"+k);
 			id=k+1;
 			nemp.setEmpId(String.valueOf(id));
 		}
@@ -169,6 +160,10 @@ public class EmployeeController {
 		else
 			nemp.setEmpId("100");
 		
+		List<EmployeeModel> lem=repo.findByUserName(emp.getUserName());
+		
+		if(lem.size()!=0)
+			return ResponseEntity.ok(new Message("User with this name exists"));
 		
 		nemp.setUserName(emp.getUserName());
 		nemp.setEmail(emp.getEmail());
@@ -208,12 +203,18 @@ public class EmployeeController {
 	@GetMapping("/getEmployeeById/{empId}")
 	public EmployeeModel getEmployeeById(@PathVariable("empId") String id){
 		return repo.getEmployeeById(id);
-		
 	}
+	
+	@GetMapping("/getEmployee/{empId}")
+	public List<EmployeeModel> getEmpById(@PathVariable("empId") String id){
+		return repo.getEmpById(id);
+	}
+	
+	
 	
 	@DeleteMapping("/admin/delete/{empId}")
 	public ResponseEntity<?> deleteEmployeeById(@PathVariable("empId") String empId) {
-		System.out.print("---"+empId);
+		
 		repo.deleteByEmpId(empId);
 		return ResponseEntity.ok(new Message("Deleted Successfully"));
 	}

@@ -24,6 +24,7 @@ public interface JobRepository extends JpaRepository<JobModel,Integer> {
 	void deleteByJobId(String JobId);
 	
 	
+	
 	@Query("from JobModel where jobLocation='Home'")
 	List<JobModel> getHomeJobs();
 }

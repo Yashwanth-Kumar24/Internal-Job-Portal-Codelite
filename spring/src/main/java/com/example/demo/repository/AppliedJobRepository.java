@@ -18,4 +18,5 @@ public interface AppliedJobRepository extends JpaRepository<AppliedJobModel,Inte
 	@Query("from AppliedJobModel where jobId=?1 and employeeId=?2")
 	List<AppliedJobModel> deleteJobsById2(String jobId, String employeeId);
 	
+	void deleteByEmployeeId(String employeeId);
 }
