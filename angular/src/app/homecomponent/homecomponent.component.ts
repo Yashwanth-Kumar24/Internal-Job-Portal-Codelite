@@ -40,7 +40,7 @@ export class HomecomponentComponent implements OnInit {
   ngOnInit(): void {
     this.empId=localStorage.getItem("empId");
 
-    this.http.get("https://8080-cbdfdacebfddceccaadbdcabcbfcdccdeaa.examlyiopb.examly.io/home",{observe:'response'})
+    this.http.get("http://localhost:4041/home",{observe:'response'})
     .subscribe((res)=>{
        this.data = res.body;
        
@@ -49,7 +49,7 @@ export class HomecomponentComponent implements OnInit {
   }
 
   addJob(jobId:string){
-    this.http.post("https://8080-cbdfdacebfddceccaadbdcabcbfcdccdeaa.examlyiopb.examly.io/home/"+this.empId,{jobId:jobId},{observe:'response'})
+    this.http.post("http://localhost:4041/home/"+this.empId,{jobId:jobId},{observe:'response'})
       .subscribe((res)=>{
         this.data=res.body;
         console.log(res);

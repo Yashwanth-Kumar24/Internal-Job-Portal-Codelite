@@ -21,7 +21,7 @@ export class ProjectmanagerhomeComponent implements OnInit {
   jobId:string="";
 
   ngOnInit(): void {
-    this.http.get("https://8080-cbdfdacebfddceccaadbdcabcbfcdccdeaa.examlyiopb.examly.io/hr",{observe:'response'})
+    this.http.get("http://localhost:4041/hr",{observe:'response'})
     .subscribe((res)=>{
        this.data = res.body;
     });
@@ -46,7 +46,7 @@ export class ProjectmanagerhomeComponent implements OnInit {
   
   addJob(){
     
-    this.http.post("https://8080-cbdfdacebfddceccaadbdcabcbfcdccdeaa.examlyiopb.examly.io/pm/addJob/",{jobTitle:this.jobTitle,jobLocation:this.jobLocation,jobDesc:this.jobDesc,
+    this.http.post("http://localhost:4041/pm/addJob/",{jobTitle:this.jobTitle,jobLocation:this.jobLocation,jobDesc:this.jobDesc,
   jobType:this.jobType,salary:this.salary,},{observe:'response'})
     .subscribe((res)=>{
        this.jobData =res.body;

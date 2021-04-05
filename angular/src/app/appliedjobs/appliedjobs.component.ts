@@ -38,7 +38,7 @@ export class AppliedjobsComponent implements OnInit {
   ngOnInit(): void {
     
       this.empId = localStorage.getItem("empId");
-    this.http.get("https://8080-cbdfdacebfddceccaadbdcabcbfcdccdeaa.examlyiopb.examly.io/appliedJobs/"+this.empId,{observe:'response'})
+    this.http.get("http://localhost:4041/appliedJobs/"+this.empId,{observe:'response'})
     .subscribe((res)=>{
        this.data = res.body;
     });
@@ -46,14 +46,14 @@ export class AppliedjobsComponent implements OnInit {
 
   details(jobId:string,empId:string)
   {
-    this.http.get("https://8080-cbdfdacebfddceccaadbdcabcbfcdccdeaa.examlyiopb.examly.io/hr/getJob/"+jobId,{observe:'response'})
+    this.http.get("http://localhost:4041/hr/getJob/"+jobId,{observe:'response'})
     .subscribe((res)=>{
       //console.log(res.body);
        this.jobData=res.body;
        
     });
     //console.log(empId);
-    this.http.get("https://8080-cbdfdacebfddceccaadbdcabcbfcdccdeaa.examlyiopb.examly.io/getEmployee/"+empId,{observe:'response'})
+    this.http.get("http://localhost:4041/getEmployee/"+empId,{observe:'response'})
     .subscribe((res)=>{
       //onsole.log(res.body);
       this.empData=res.body;
@@ -63,7 +63,7 @@ export class AppliedjobsComponent implements OnInit {
   }
 
   deleteJob(){
-    this.http.delete("https://8080-cbdfdacebfddceccaadbdcabcbfcdccdeaa.examlyiopb.examly.io/appliedJobs/delete/"+this.empId)
+    this.http.delete("http://localhost:4041/appliedJobs/delete/"+this.empId)
       .subscribe((res)=>{
         
         alert("Jobs Deleted");

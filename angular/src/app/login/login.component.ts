@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
     
     }
     else{
-      this.http.post("https://8080-cbdfdacebfddceccaadbdcabcbfcdccdeaa.examlyiopb.examly.io/Login",{empId:this.empId,password:this.password}
+      this.http.post("http://localhost:4041/Login",{empId:this.empId,password:this.password}
       ,{observe:'response'})
       .subscribe((res)=>{
         
@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
   }
 
   addAdmin(){
-        this.http.post("https://8080-cbdfdacebfddceccaadbdcabcbfcdccdeaa.examlyiopb.examly.io/admin/add/",
+        this.http.post("http://localhost:4041/admin/add/",
         {email:"admin@job.in",userName:"Admin",password:"admin",role:"Admin"},{observe:'response'})
         .subscribe((res)=>{
           console.log(res.body);
@@ -71,7 +71,7 @@ export class LoginComponent implements OnInit {
         
       }
       projectManager(){
-        this.http.post("https://8080-cbdfdacebfddceccaadbdcabcbfcdccdeaa.examlyiopb.examly.io/admin/add/",
+        this.http.post("http://localhost:4041/admin/add/",
         {email:"pm@job.in",userName:"Project Manager",password:"pm",role:"Project Manager"},{observe:'response'})
         .subscribe((res)=>{
           console.log(res.body);
@@ -80,7 +80,7 @@ export class LoginComponent implements OnInit {
       }
 
       hr(){
-        this.http.post("https://8080-cbdfdacebfddceccaadbdcabcbfcdccdeaa.examlyiopb.examly.io/admin/add/",
+        this.http.post("http://localhost:4041/admin/add/",
         {email:"hr@job.in",userName:"HR",password:"hr",role:"HR"},{observe:'response'})
         .subscribe((res)=>{
           console.log(res.body);
