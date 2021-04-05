@@ -19,24 +19,25 @@ export class AppliedjobsComponent implements OnInit {
   constructor(private router: ActivatedRoute,private route:Router,private http:HttpClient) { }
 
     userHome(){
-      this.route.navigate(['home',{data:this.empId}]);
+      this.route.navigate(['home']);
     }
     
     appliedJobs(){
-      this.route.navigate(['appliedJobs',{data:this.empId}]);
+      this.route.navigate(['appliedJobs']);
     }
   
     home(){
+    localStorage.clear();
+      localStorage.setItem("SessionUse","0");
+   
       this.route.navigate(['']);
-    }
+  }
+
   
     
   ngOnInit(): void {
-    this.router.paramMap.subscribe(params => { 
-      this.empId = params.get('data'); 
-      console.log(this.empId);
-  });
-
+    
+      this.empId = localStorage.getItem("empId");
     this.http.get("https://8080-cbdfdacebfddceccaadbdcabcbfcdccdeaa.examlyiopb.examly.io/appliedJobs/"+this.empId,{observe:'response'})
     .subscribe((res)=>{
        this.data = res.body;

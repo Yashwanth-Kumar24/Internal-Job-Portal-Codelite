@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import {AuthGuard} from './auth.guard';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppliedjobsComponent } from './appliedjobs/appliedjobs.component';
@@ -47,7 +48,7 @@ import { ProjectmanagerappliedjobsComponent } from './projectmanagerappliedjobs/
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -36,8 +36,12 @@ export class ProjectmanagerhomeComponent implements OnInit {
   }
 
   home(){
-    this.route.navigate(['']);
+    localStorage.clear();
+      localStorage.setItem("SessionUse","0");
+   
+      this.route.navigate(['']);
   }
+
   
   
   addJob(){

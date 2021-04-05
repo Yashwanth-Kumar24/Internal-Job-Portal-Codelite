@@ -12,19 +12,19 @@ import { LoginComponent } from './login/login.component';
 import { ProjectmanagerappliedjobsComponent } from './projectmanagerappliedjobs/projectmanagerappliedjobs.component';
 import { ProjectmanagerhomeComponent } from './projectmanagerhome/projectmanagerhome.component';
 import { RegisterComponent } from './register/register.component';  
-
+import {AuthGuard} from './auth.guard';
 
 const routes: Routes = [
   {path:'', component:LoginComponent},
   {path:'register', component:RegisterComponent},
-  {path:'appliedJobs', component:AppliedjobsComponent},
-  {path:'home',component:HomecomponentComponent},
-  {path:'hr',component : HrhomeComponent},
-  {path:'hr/allAppliedJobs',component:HrappliedjobsComponent},
-  {path:'admin',component:AdminhomeComponent},
-  {path:'demo',component:DemoComponent},
-  {path:'projectmanager',component:ProjectmanagerhomeComponent},
-  {path:'projectmanager/appliedJobs',component:ProjectmanagerappliedjobsComponent},
+  {path:'appliedJobs', component:AppliedjobsComponent,canActivate:[AuthGuard]},
+  {path:'home',component:HomecomponentComponent,canActivate:[AuthGuard]},
+  {path:'hr',component : HrhomeComponent,canActivate:[AuthGuard]},
+  {path:'hr/allAppliedJobs',component:HrappliedjobsComponent,canActivate:[AuthGuard]},
+  {path:'admin',component:AdminhomeComponent,canActivate:[AuthGuard]},
+  {path:'demo',component:DemoComponent,canActivate:[AuthGuard]},
+  {path:'projectmanager',component:ProjectmanagerhomeComponent,canActivate:[AuthGuard]},
+  {path:'projectmanager/appliedJobs',component:ProjectmanagerappliedjobsComponent,canActivate:[AuthGuard]},
   
   
 ];

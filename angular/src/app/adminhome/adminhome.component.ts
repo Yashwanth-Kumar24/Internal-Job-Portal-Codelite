@@ -32,8 +32,12 @@ export class AdminhomeComponent implements OnInit {
     });
   }
   home(){
-    this.route.navigate(['']);
+    localStorage.clear();
+      localStorage.setItem("SessionUse","0");
+   
+      this.route.navigate(['']);
   }
+
   adminPage(){
     this.route.navigate(['admin']);
   }

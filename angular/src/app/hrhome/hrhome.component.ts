@@ -38,8 +38,12 @@ export class HrhomeComponent implements OnInit {
   }
 
   home(){
-    this.route.navigate(['']);
+    localStorage.clear();
+      localStorage.setItem("SessionUse","0");
+   
+      this.route.navigate(['']);
   }
+
   
   addJob(id:any){
     console.log(id);

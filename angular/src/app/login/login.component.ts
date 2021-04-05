@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(private router:Router,private http:HttpClient) { }
   empId!:string;
   password!:String;
+  loginstatus:string = "0";
   ngOnInit(): void {
   }
   login(){
@@ -23,20 +24,20 @@ export class LoginComponent implements OnInit {
     {
       this.addAdmin();
       alert("Welcome Admin");
-
+      localStorage.setItem("SessionUse","1");
       this.router.navigate(['admin']);
     }
     else if(this.empId=="projectmanager" && this.password=="pm"){
       this.projectManager();
       alert("Welcome Project Manager");
-
+      localStorage.setItem("SessionUse","1");
       this.router.navigate(['projectmanager']);
     
     }
     else if(this.empId=="HR" && this.password=="hr"){
       this.hr();
       alert("Welcome HR");
-
+      localStorage.setItem("SessionUse","1");
       this.router.navigate(['hr']);
     
     }
@@ -46,11 +47,17 @@ export class LoginComponent implements OnInit {
       .subscribe((res)=>{
         
          if(res.body==true){
-          this.router.navigate(['home',{data:this.empId}]);
+           this.loginstatus="1";
+           localStorage.setItem("empId",this.empId);
+          
          }
-         else  
+         else  {
+           this.loginstatus="0";
             alert("Invalid Credentials");
+         }
       });
+      localStorage.setItem("SessionUse",this.loginstatus);
+      this.router.navigate(['home']);
     }
       
   }

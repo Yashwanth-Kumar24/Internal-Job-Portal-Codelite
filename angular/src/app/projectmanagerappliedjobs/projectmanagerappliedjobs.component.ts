@@ -30,8 +30,12 @@ export class ProjectmanagerappliedjobsComponent implements OnInit {
   }
 
   home(){
-    this.route.navigate(['']);
+    localStorage.clear();
+      localStorage.setItem("SessionUse","0");
+   
+      this.route.navigate(['']);
   }
+
   details(jobId:string,empId:string){
     console.log(jobId);
     this.http.get("https://8080-cbdfdacebfddceccaadbdcabcbfcdccdeaa.examlyiopb.examly.io/hr/getJob/"+jobId,{observe:'response'})

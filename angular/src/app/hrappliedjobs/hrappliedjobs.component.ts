@@ -31,8 +31,12 @@ export class HrappliedjobsComponent implements OnInit {
   }
 
   home(){
-    this.route.navigate(['']);
+    localStorage.clear();
+      localStorage.setItem("SessionUse","0");
+   
+      this.route.navigate(['']);
   }
+
 
 
   details(jobId:string,empId:string){
